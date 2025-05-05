@@ -4,17 +4,27 @@ import { Observable } from 'rxjs';
 import { AuthorDetail } from './author-detail';
 import { environment } from './../../environments/environment.development';
 
+
 @Injectable({
-  providedIn: 'root'
+ providedIn: 'root'
 })
 export class AuthorService {
 
-  private apiUrl: string = environment.baseUrl + 'authors';
 
-  constructor(private http: HttpClient) { }
+ private apiUrl: string = environment.baseUrl + 'authors';
 
-  getAuthors(): Observable<AuthorDetail[]> {
-    return this.http.get<AuthorDetail[]>(this.apiUrl);
-  }
+
+ constructor(private http: HttpClient) { }
+
+
+ getAuthors(): Observable<AuthorDetail[]> {
+   return this.http.get<AuthorDetail[]>(this.apiUrl);
+ }
+
+
+ getAuthor(id: string): Observable<AuthorDetail> {
+   return this.http.get<AuthorDetail>(this.apiUrl + "/" + id);
+ }
+
 
 }

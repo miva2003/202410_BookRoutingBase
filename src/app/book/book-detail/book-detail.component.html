@@ -14,8 +14,9 @@
       <dl>
         <dt>Authors</dt>
         <dd class="caption" *ngFor="let author of bookDetail.authors">
-          {{ author.name }}
+          <a routerLink="/authors/{{ author.id }}">{{ author.name }}</a>
         </dd>
+ 
         <dt>ISBN</dt>
         <dd>{{ bookDetail.isbn }}</dd>
         <hr />
@@ -30,4 +31,4 @@
       </dl>
     </div>
   </div>
-</div>
+ </div>
